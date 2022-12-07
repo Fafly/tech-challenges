@@ -3,7 +3,8 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
+import Home from './src/pages/Home/Home';
 import {name as appName} from './app.json';
+import './apiMock';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => Home);
