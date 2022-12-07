@@ -36,10 +36,10 @@ const Home = () => {
 
   return (
     <SafeAreaView>
+      <View style={styles.header}>
+        <Text style={styles.title}>Surveys</Text>
+      </View>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={styles.header}>
-          <Text style={styles.title}>Surveys</Text>
-        </View>
         {surveys &&
           surveys.length > 0 &&
           surveys.map(survey => (
