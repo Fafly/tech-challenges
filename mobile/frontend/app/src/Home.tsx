@@ -8,16 +8,11 @@
  * @format
  */
 
-import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
-import { getSurveys } from "./utils/api";
-import { Survey } from "./utils/types";
+import {AxiosResponse} from 'axios';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {getSurveys} from './utils/api';
+import {Survey} from './utils/types';
 
 const Home = () => {
   const [surveys, setSurveys] = useState<Survey[]>([]);
@@ -25,27 +20,29 @@ const Home = () => {
   useEffect(() => {
     getSurveys()
       .then((response: AxiosResponse<Survey[]>) => {
-        if (!response.data || response.data.length <= 0) return;
+        if (!response.data || response.data.length <= 0) {
+          return;
+        }
         setSurveys(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
-      })
+      });
   }, []);
 
   return (
     <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-      >
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
           <Text>Surveys</Text>
         </View>
-        {surveys && surveys.length > 0 && surveys.map((survey) => (
-          <View key={survey.id}>
-            <Text>{survey.name}</Text>
-          </View>
-        ))}
+        {surveys &&
+          surveys.length > 0 &&
+          surveys.map(survey => (
+            <View key={survey.id}>
+              <Text>{survey.name}</Text>
+            </View>
+          ))}
       </ScrollView>
     </SafeAreaView>
   );
