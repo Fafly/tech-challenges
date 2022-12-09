@@ -1,19 +1,20 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Pressable, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import styles from './ListItemStyles';
 
 type ListItemProps = {
   text?: string;
+  onPress?: () => void;
 };
 
-const ListItem = ({text = ''}: ListItemProps) => {
+const ListItem = ({text = '', onPress}: ListItemProps) => {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Text>{text}</Text>
       <Icon name="right" size={20} />
-    </View>
+    </Pressable>
   );
 };
 
