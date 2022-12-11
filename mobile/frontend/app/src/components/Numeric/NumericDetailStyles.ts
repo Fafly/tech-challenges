@@ -1,10 +1,17 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  iconContainer: {
+  container: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50,
+  },
+  title: {
+    fontSize: 20,
+    marginTop: 20,
+  },
+  result: {
+    fontSize: 32,
+    marginTop: 40,
   },
 });

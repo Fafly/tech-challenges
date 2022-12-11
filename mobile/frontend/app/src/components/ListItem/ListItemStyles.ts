@@ -10,8 +10,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#000000',
+    flexDirection: 'row',
+    position: 'relative',
   },
   title: {
     color: '#FFFFFF',
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: 20,
+    top: 15,
   },
 });

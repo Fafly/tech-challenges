@@ -1,24 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AxiosResponse} from 'axios';
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 import styles from './HomeStyles';
-
+import {RootStackParamList} from '../../App';
 import ListItem from '../../components/ListItem/ListItem';
 import {getSurveys} from '../../utils/api';
 import {Survey} from '../../utils/types';
 
-const Home = () => {
+const Home = ({
+  navigation,
+}: NativeStackScreenProps<RootStackParamList, 'Home'>) => {
   const [surveys, setSurveys] = useState<Survey[]>([]);
 
   useEffect(() => {
@@ -37,14 +31,25 @@ const Home = () => {
   return (
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={styles.header}>
-          <Text style={styles.title}>Surveys</Text>
-        </View>
         {surveys &&
           surveys.length > 0 &&
           surveys.map(survey => (
-            <ListItem key={survey.id} text={survey.name} />
+            <ListItem
+              key={survey.id}
+              text={survey.name}
+              onPress={() =>
+                navigation.navigate('Survey', {
+                  id: survey.id,
+                  title: survey.name,
+                })
+              }
+            />
           ))}
+        {(!surveys || surveys.length <= 0) && (
+          <View style={styles.iconContainer}>
+            <Icon name="coffee" size={50} />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

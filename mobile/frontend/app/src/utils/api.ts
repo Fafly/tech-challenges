@@ -5,8 +5,5 @@ export const getSurveys = () => {
 };
 
 export const getSurvey = (id: number) => {
-  if (!id) {
-    return null;
-  }
   return axios.get(`/api/survey/${id}`);
 };
