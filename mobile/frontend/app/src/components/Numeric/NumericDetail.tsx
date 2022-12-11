@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 
+import styles from './NumericDetailStyles';
 import {SurveyData} from '../../utils/types';
 
 const calculateAverage = (answers: SurveyData['answers']) => {
@@ -13,7 +14,7 @@ const calculateAverage = (answers: SurveyData['answers']) => {
   const sum = (answers as Array<number>).reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
-  return sum / answers.length;
+  return (sum / answers.length).toFixed(2);
 };
 
 type NumericDetailProps = {
@@ -23,8 +24,12 @@ type NumericDetailProps = {
 const NumericDetail = ({data}: NumericDetailProps) => {
   return (
     <>
-      <Text>The average of the answers</Text>
-      <Text>{calculateAverage(data.answers)}</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>The average of the answers</Text>
+      </View>
+      <View style={styles.container}>
+        <Text style={styles.result}>{calculateAverage(data.answers)}</Text>
+      </View>
     </>
   );
 };

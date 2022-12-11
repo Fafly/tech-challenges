@@ -1,15 +1,17 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  header: {
-    height: 50,
-    backgroundColor: '#2D9CDB',
-    fontSize: 20,
+  container: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
-    color: '#FFFFFF',
+    fontSize: 20,
+    marginTop: 20,
+  },
+  result: {
+    fontSize: 32,
+    marginTop: 40,
   },
 });

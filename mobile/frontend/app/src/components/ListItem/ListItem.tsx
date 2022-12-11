@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Text} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import styles from './ListItemStyles';
@@ -13,7 +13,11 @@ const ListItem = ({text = '', onPress}: ListItemProps) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <Text>{text}</Text>
-      {onPress && <Icon name="right" size={20} />}
+      {onPress && (
+        <View style={styles.iconContainer}>
+          <Icon name="right" size={20} />
+        </View>
+      )}
     </Pressable>
   );
 };
