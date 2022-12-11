@@ -1,9 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AxiosResponse} from 'axios';
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-
-import styles from './HomeStyles';
+import {SafeAreaView, ScrollView} from 'react-native';
 
 import {RootStackParamList} from '../../App';
 import ListItem from '../../components/ListItem/ListItem';
@@ -30,9 +28,6 @@ const Home = ({
 
   return (
     <SafeAreaView>
-      <View style={styles.header}>
-        <Text style={styles.title}>Surveys</Text>
-      </View>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         {surveys &&
           surveys.length > 0 &&

@@ -1,7 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AxiosResponse} from 'axios';
 import React, {useEffect, useMemo, useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 
 import {RootStackParamList} from '../../App';
 import ListItem from '../../components/ListItem/ListItem';
@@ -11,7 +11,7 @@ import {SurveyData} from '../../utils/types';
 const Survey = ({
   route,
 }: NativeStackScreenProps<RootStackParamList, 'Survey'>) => {
-  const {id, title} = useMemo(() => {
+  const {id} = useMemo(() => {
     return route.params;
   }, [route.params]);
   const [surveysData, setSurveyData] = useState<SurveyData[]>([]);
@@ -31,9 +31,6 @@ const Survey = ({
 
   return (
     <SafeAreaView>
-      <View>
-        <Text>{title}</Text>
-      </View>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         {surveysData &&
           surveysData.length > 0 &&

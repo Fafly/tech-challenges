@@ -15,9 +15,27 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Survey" component={Survey} />
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#2D9CDB',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{title: 'Surveys'}}
+        />
+        <Stack.Screen
+          name="Survey"
+          component={Survey}
+          options={({route}) => ({title: route.params.title})}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
