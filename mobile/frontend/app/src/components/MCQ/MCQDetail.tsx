@@ -4,7 +4,7 @@ import {Text} from 'react-native';
 import ListItem from '../ListItem/ListItem';
 import {SurveyData} from '../../utils/types';
 
-const formatAnswers = (
+export const formatAnswers = (
   answers: SurveyData['answers'],
   options: SurveyData['options'],
 ) => {

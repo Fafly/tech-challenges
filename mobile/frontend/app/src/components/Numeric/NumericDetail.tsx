@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 import styles from './NumericDetailStyles';
 import {SurveyData} from '../../utils/types';
 
-const calculateAverage = (answers: SurveyData['answers']) => {
+export const calculateAverage = (answers: SurveyData['answers']) => {
   if (
     answers.some(value => typeof value === 'string') ||
     answers.some(value => typeof value === 'object')

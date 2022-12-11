@@ -4,7 +4,7 @@ import {Text} from 'react-native';
 import ListItem from '../ListItem/ListItem';
 import {SurveyData} from '../../utils/types';
 
-const formatDate = (answers: SurveyData['answers']) => {
+export const formatDate = (answers: SurveyData['answers']) => {
   if (
     answers.some(value => typeof value === 'number') ||
     answers.some(value => typeof value === 'object')
