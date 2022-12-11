@@ -13,7 +13,7 @@ const ListItem = ({text = '', onPress}: ListItemProps) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <Text>{text}</Text>
-      <Icon name="right" size={20} />
+      {onPress && <Icon name="right" size={20} />}
     </Pressable>
   );
 };
