@@ -4,6 +4,7 @@ import {SafeAreaView, ScrollView} from 'react-native';
 
 import {RootStackParamList} from '../../App';
 import NumericDetail from '../../components/Numeric/NumericDetail';
+import DateDetail from '../../components/Date/DateDetail';
 import {SurveyType} from '../../utils/types';
 
 const SurveyDetail = ({
@@ -16,7 +17,8 @@ const SurveyDetail = ({
   return (
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <NumericDetail data={data} />
+        {data.type === SurveyType.Numeric && <NumericDetail data={data} />}
+        {data.type === SurveyType.Date && <DateDetail data={data} />}
       </ScrollView>
     </SafeAreaView>
   );
