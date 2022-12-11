@@ -1,8 +1,10 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AxiosResponse} from 'axios';
 import React, {useEffect, useMemo, useState} from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
+import styles from './SurveyStyles';
 import {RootStackParamList} from '../../App';
 import ListItem from '../../components/ListItem/ListItem';
 import {getSurvey} from '../../utils/api';
@@ -47,6 +49,11 @@ const Survey = ({
               }
             />
           ))}
+        {(!surveysData || surveysData.length <= 0) && (
+          <View style={styles.iconContainer}>
+            <Icon name="coffee" size={50} />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
