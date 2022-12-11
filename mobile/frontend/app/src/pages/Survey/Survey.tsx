@@ -9,6 +9,7 @@ import {getSurvey} from '../../utils/api';
 import {SurveyData} from '../../utils/types';
 
 const Survey = ({
+  navigation,
   route,
 }: NativeStackScreenProps<RootStackParamList, 'Survey'>) => {
   const {id} = useMemo(() => {
@@ -35,7 +36,16 @@ const Survey = ({
         {surveysData &&
           surveysData.length > 0 &&
           surveysData.map((survey, idx) => (
-            <ListItem key={idx} text={survey.label} />
+            <ListItem
+              key={idx}
+              text={survey.label}
+              onPress={() =>
+                navigation.navigate('SurveyDetail', {
+                  title: survey.label,
+                  data: survey,
+                })
+              }
+            />
           ))}
       </ScrollView>
     </SafeAreaView>
